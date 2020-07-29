@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import random
 import sys
 import time
@@ -16,11 +18,11 @@ if __name__ == "__main__":
     limit = int(sys.argv[1])
     kanjilist = get_list(limit)
 
-    width, height = 200, 200
+    width, height = 250, 250
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption('Kanji')
     pygame.font.init()
-    myfont = pygame.font.SysFont('ipamincho', 150)
+    myfont = pygame.font.SysFont('ipamincho', 200)
 
     start_time = 0
     interval = 2
@@ -29,7 +31,7 @@ if __name__ == "__main__":
         now = timer()
         if (now - start_time > interval):
             n = random.randint(0, limit-1)
-            textsurface = myfont.render(kanjilist[n], True, (0, 0, 0))
+            textsurface = myfont.render(kanjilist[n], True, (0x00, 0x00, 0x00))
             w = textsurface.get_width()
             h = textsurface.get_height()
 
