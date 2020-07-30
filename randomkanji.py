@@ -8,6 +8,7 @@ from timeit import default_timer as timer
 import pygame
 
 PATH = "kanji.txt"
+RTK1_NUM_KANJI = 2200
 
 def get_list(limit):
     with open(PATH, 'r', encoding='utf8') as file:
@@ -15,7 +16,9 @@ def get_list(limit):
         return line[:limit]
 
 if __name__ == "__main__":
-    limit = int(sys.argv[1])
+    limit = RTK1_NUM_KANJI
+    if (len(sys.argv) == 2):
+        limit = int(sys.argv[1])
     kanjilist = get_list(limit)
 
     width, height = 250, 250
